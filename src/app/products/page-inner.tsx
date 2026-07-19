@@ -152,7 +152,7 @@ export default function ProductsPage() {
         </div>
       </div>
 
-      <div className="flex gap-6">
+      <div className="flex flex-col md:flex-row gap-6 overflow-hidden">
         {/* Sidebar filters (desktop) */}
         <aside className={`md:w-56 shrink-0 ${showFilters ? 'block' : 'hidden'} md:block`}>
           <div className="md:sticky md:top-20 space-y-5">
@@ -264,15 +264,10 @@ function ListItem({ product }: { product: Product }) {
       href={`/products/${product.id}`}
       className="group flex gap-4 p-3 rounded-2xl bg-card border border-border hover:shadow-card transition-shadow"
     >
-      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-muted overflow-hidden shrink-0">
-        {/* eslint-disable-next-line @next/next/no-img-element */}
-        <img
-          src={`/api/placeholder/${product.id}`}
-          onError={(e) => { (e.currentTarget as HTMLImageElement).style.display = 'none'; }}
-          alt=""
-          className="hidden"
-        />
-        <div className="w-full h-full" style={{ background: ['#1d1d1f', '#0a84ff', '#f59e0b', '#30d158', '#0071e3'][Number(idcat || 1) % 5] }} />
+      <div className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl overflow-hidden shrink-0" style={{ background: ['#1d1d1f', '#0a84ff', '#f59e0b', '#30d158', '#0071e3'][Number(idcat || 1) % 5] }}>
+        <div className="w-full h-full flex items-center justify-center p-2">
+          <span className="text-[11px] font-medium text-white text-center line-clamp-2">{product.nama}</span>
+        </div>
       </div>
       <div className="flex-1 min-w-0 flex flex-col justify-between">
         <div>

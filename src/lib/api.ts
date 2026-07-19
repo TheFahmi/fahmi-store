@@ -102,12 +102,34 @@ export function formatIDR(n: number) {
   }).format(n || 0);
 }
 
-export function productImage(image: string | null | undefined, name?: string) {
+// Category accent colors (solid, no gradients)
+const CAT_COLORS: Record<number, { bg: string; fg: string }> = {
+  1: { bg: '#1d1d1f', fg: '#f5f5f7' }, // Electronics
+  2: { bg: '#0a84ff', fg: '#ffffff' }, // Fashion
+  3: { bg: '#f59e0b', fg: '#1d1d1f' }, // Home & Living
+  4: { bg: '#30d158', fg: '#1d1d1f' }, // Sports
+  5: { bg: '#0071e3', fg: '#ffffff' }, // Books
+};
+
+export function productImage(image: string | null | undefined, name?: string, idcat?: number) {
   if (image) {
     if (image.startsWith('http')) return image;
     return `${API}/products/${image}`;
   }
-  // placeholder with initials
-  const label = encodeURIComponent((name || 'FS').slice(0, 12));
-  return `https://placehold.co/600x600/e8e8ed/1d1d1f?text=${label}&font=system-ui`;
+  // Generate inline SVG placeholder with product name + category color
+  const colors = CAT_COLORS[idcat || 0] || { bg: '#1d1d1f', fg: '#f5f5f7' };
+  const label = (name || 'Product').slice(0, 20);
+  const lines = label.split(' ');
+  const line1 = lines.slice(0, Math.ceil(lines.length / 2)).join(' ');
+  const line2 = lines.slice(Math.ceil(lines.length / 2)).join(' ');
+  const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="600" viewBox="0 0 600 600">
+<rect width="600" height="600" fill="${colors.bg}"/>
+<text x="300" y="${line2 ? '280' : '310'}" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="${colors.fg}" text-anchor="middle">${escapeXml(line1)}</text>
+${line2 ? `<text x="300" y="340" font-family="system-ui, -apple-system, sans-serif" font-size="36" font-weight="600" fill="${colors.fg}" text-anchor="middle">${escapeXml(line2)}</text>` : ''}
+</svg>`;
+  return `data:image/svg+xml;utf8,${encodeURIComponent(svg)}`;
+}
+
+function escapeXml(s: string) {
+  return s.replace(/[<>&"']/g, (c) => ({ '<': '&lt;', '>': '&gt;', '&': '&amp;', '"': '&quot;', "'": '&apos;' }[c] || c));
 }

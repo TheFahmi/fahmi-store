@@ -47,16 +47,22 @@ export default function ProductsPage() {
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
-        <input
-          value={q}
-          onChange={(e) => setQ(e.target.value)}
-          placeholder="Search products..."
-          className="flex-1 h-11 px-4 rounded-xl bg-card border border-border text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30 focus:border-[#0071e3]"
-        />
+        <div className="relative flex-1">
+          <svg className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-muted-foreground pointer-events-none" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <circle cx="11" cy="11" r="8" />
+            <path d="m21 21-4.3-4.3" />
+          </svg>
+          <input
+            value={q}
+            onChange={(e) => setQ(e.target.value)}
+            placeholder="Search products..."
+            className="w-full h-14 pl-12 pr-5 rounded-2xl bg-card border border-border text-[17px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30 focus:border-[#0071e3]"
+          />
+        </div>
         <select
           value={cat}
           onChange={(e) => setCat(e.target.value)}
-          className="h-11 px-4 rounded-xl bg-card border border-border text-[15px] text-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30"
+          className="h-14 px-5 rounded-2xl bg-card border border-border text-[17px] text-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30"
         >
           <option value="all">All categories</option>
           {categories.map((c) => (

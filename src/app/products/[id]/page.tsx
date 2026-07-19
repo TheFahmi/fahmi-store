@@ -83,7 +83,7 @@ export default function ProductDetailPage() {
         <div className="aspect-square rounded-3xl bg-muted overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
-            src={productImage(product.image, product.nama)}
+            src={productImage(product.image, product.nama, product.idcat ?? product.idcategory)}
             alt={product.nama}
             className="w-full h-full object-cover"
           />

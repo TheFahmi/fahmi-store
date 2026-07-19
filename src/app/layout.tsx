@@ -7,13 +7,14 @@ import Navbar from '@/components/Navbar';
 import Footer from '@/components/Footer';
 
 export const metadata: Metadata = {
-  title: 'Fahmi Store',
-  description: 'Premium online store — electronics, fashion, sports & more',
+  title: 'Fahmi Store — Premium Online Shopping',
+  description: 'Shop electronics, fashion, home, sports & books. Curated for everyday excellence. Free shipping, secure payment, 30-day returns.',
+  keywords: ['online store', 'electronics', 'fashion', 'sports', 'books', 'Indonesia'],
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="id" suppressHydrationWarning className="h-full antialiased">
+    <html lang="en" suppressHydrationWarning className="h-full antialiased">
       <body className="min-h-full flex flex-col bg-background text-foreground font-sans">
         <ThemeProvider>
           <AuthProvider>

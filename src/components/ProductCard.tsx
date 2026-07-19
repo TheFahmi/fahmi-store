@@ -141,10 +141,10 @@ export default function ProductCard({ product }: { product: Product }) {
             <span className="text-[11px] text-muted-foreground">{Number(product.rating).toFixed(1)}</span>
           )}
         </div>
-        <div className="mt-2 flex items-baseline gap-2">
-          <p className="text-[15px] font-semibold text-foreground tracking-[-0.01em]">{formatIDR(product.harga)}</p>
+        <div className="mt-2 flex flex-col">
+          <p className="text-[15px] font-semibold text-foreground tracking-[-0.01em] truncate">{formatIDR(product.harga)}</p>
           {originalPrice > 0 && (
-            <p className="text-[12px] text-muted-foreground line-through">{formatIDR(originalPrice)}</p>
+            <p className="text-[12px] text-muted-foreground line-through truncate">{formatIDR(originalPrice)}</p>
           )}
         </div>
         {err && <p className="mt-1 text-[11px] text-destructive">{err}</p>}

@@ -56,24 +56,24 @@ export default function Footer() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           {/* Shop */}
           <div>
-            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-white/50 mb-4">Shop</h4>
+            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-background/50 mb-4">Shop</h4>
             <ul className="space-y-2.5">
               {shopCats.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-[13px] text-white/80 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-background/80 hover:text-background transition-colors">{l.label}</Link>
                 </li>
               ))}
-              <li><Link href="/products" className="text-[13px] text-white/80 hover:text-white">All products</Link></li>
+              <li><Link href="/products" className="text-[13px] text-background/80 hover:text-background">All products</Link></li>
             </ul>
           </div>
 
           {/* About */}
           <div>
-            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-white/50 mb-4">About</h4>
+            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-background/50 mb-4">About</h4>
             <ul className="space-y-2.5">
               {aboutLinks.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-[13px] text-white/80 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-background/80 hover:text-background transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -81,11 +81,11 @@ export default function Footer() {
 
           {/* Support */}
           <div>
-            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-white/50 mb-4">Support</h4>
+            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-background/50 mb-4">Support</h4>
             <ul className="space-y-2.5">
               {supportLinks.map((l) => (
                 <li key={l.label}>
-                  <Link href={l.href} className="text-[13px] text-white/80 hover:text-white transition-colors">{l.label}</Link>
+                  <Link href={l.href} className="text-[13px] text-background/80 hover:text-background transition-colors">{l.label}</Link>
                 </li>
               ))}
             </ul>
@@ -93,17 +93,17 @@ export default function Footer() {
 
           {/* Newsletter */}
           <div>
-            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-white/50 mb-4">Newsletter</h4>
-            <p className="text-[13px] text-white/70 mb-3">Get deals & new arrivals.</p>
+            <h4 className="text-[12px] font-semibold uppercase tracking-wider text-background/50 mb-4">Newsletter</h4>
+            <p className="text-[13px] text-background/70 mb-3">Get deals & new arrivals.</p>
             <form className="flex flex-col gap-2" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full h-12 px-4 rounded-xl bg-white/10 text-[15px] text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/60 border border-white/10"
+                className="w-full h-12 px-4 rounded-xl bg-background/10 text-[15px] text-background placeholder:text-background/40 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/60 border border-background/10"
               />
               <button
                 type="submit"
-                className="h-12 rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-white text-[15px] font-medium transition-colors"
+                className="h-12 rounded-xl bg-[#0071e3] hover:bg-[#0077ed] text-background text-[15px] font-medium transition-colors"
               >
                 Subscribe
               </button>
@@ -112,45 +112,45 @@ export default function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="mt-12 pt-6 border-t border-white/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
+        <div className="mt-12 pt-6 border-t border-background/10 flex flex-col md:flex-row md:items-center md:justify-between gap-4">
           <div className="flex items-center gap-3">
             <span className="w-7 h-7 rounded-lg bg-[#0071e3] flex items-center justify-center">
-              <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
+              <svg className="w-4 h-4 text-background" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                 <path d="M6 6h15l-1.5 9h-12z" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /><path d="M6 6L5 3H2" />
               </svg>
             </span>
-            <p className="text-[13px] text-white/60">&copy; {new Date().getFullYear()} Fahmi Store. All rights reserved.</p>
+            <p className="text-[13px] text-background/60">&copy; {new Date().getFullYear()} Fahmi Store. All rights reserved.</p>
           </div>
 
           <div className="flex items-center gap-4">
             {/* Social */}
             <div className="flex items-center gap-2">
-              <a href="#" aria-label="Twitter" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+              <a href="#" aria-label="Twitter" className="w-8 h-8 flex items-center justify-center rounded-full bg-background/10 hover:bg-background/20 text-background transition-colors">
                 <Twitter />
               </a>
-              <a href="#" aria-label="Instagram" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+              <a href="#" aria-label="Instagram" className="w-8 h-8 flex items-center justify-center rounded-full bg-background/10 hover:bg-background/20 text-background transition-colors">
                 <Instagram />
               </a>
-              <a href="#" aria-label="Facebook" className="w-8 h-8 flex items-center justify-center rounded-full bg-white/10 hover:bg-white/20 text-white transition-colors">
+              <a href="#" aria-label="Facebook" className="w-8 h-8 flex items-center justify-center rounded-full bg-background/10 hover:bg-background/20 text-background transition-colors">
                 <Facebook />
               </a>
             </div>
 
             {/* Payments */}
             <div className="flex items-center gap-1.5">
-              <span className="text-[10px] font-bold px-2 py-1 rounded bg-white/10 text-white tracking-wider">VISA</span>
-              <span className="text-[10px] font-bold px-2 py-1 rounded bg-white/10 text-white tracking-wider">MC</span>
-              <span className="text-[10px] font-bold px-2 py-1 rounded bg-white/10 text-white tracking-wider">PayPal</span>
+              <span className="text-[10px] font-bold px-2 py-1 rounded bg-background/10 text-background tracking-wider">VISA</span>
+              <span className="text-[10px] font-bold px-2 py-1 rounded bg-background/10 text-background tracking-wider">MC</span>
+              <span className="text-[10px] font-bold px-2 py-1 rounded bg-background/10 text-background tracking-wider">PayPal</span>
             </div>
           </div>
         </div>
 
         {/* Legal */}
-        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-white/40">
-          <Link href="/privacy" className="hover:text-white/80">Privacy Policy</Link>
-          <Link href="/terms" className="hover:text-white/80">Terms of Service</Link>
-          <Link href="/cookies" className="hover:text-white/80">Cookie Policy</Link>
-          <Link href="/sitemap" className="hover:text-white/80">Sitemap</Link>
+        <div className="mt-4 flex flex-wrap gap-x-5 gap-y-2 text-[12px] text-background/40">
+          <Link href="/privacy" className="hover:text-background/80">Privacy Policy</Link>
+          <Link href="/terms" className="hover:text-background/80">Terms of Service</Link>
+          <Link href="/cookies" className="hover:text-background/80">Cookie Policy</Link>
+          <Link href="/sitemap" className="hover:text-background/80">Sitemap</Link>
         </div>
       </div>
     </footer>

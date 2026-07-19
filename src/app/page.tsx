@@ -305,15 +305,15 @@ export default function HomePage() {
             <p className="mt-3 text-white/70 text-[15px]">
               Subscribe for exclusive deals, new arrivals, and member-only offers.
             </p>
-            <form className="mt-6 flex flex-col sm:flex-row gap-2 max-w-md mx-auto" onSubmit={(e) => e.preventDefault()}>
+            <form className="mt-6 flex flex-col sm:flex-row gap-2 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 h-12 px-4 rounded-full bg-white/10 text-[15px] text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/60 border border-white/10"
+                className="flex-1 h-14 px-5 rounded-full bg-white/10 text-[17px] text-white placeholder:text-white/40 focus:outline-none focus:ring-2 focus:ring-[#0071e3]/60 border border-white/10"
               />
               <button
                 type="submit"
-                className="h-12 px-6 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[15px] font-medium transition-colors"
+                className="h-14 px-7 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[17px] font-medium transition-colors"
               >
                 Subscribe
               </button>

@@ -42,8 +42,8 @@ export default function ProductsPage() {
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
       <div className="mb-8">
-        <h1 className="text-3xl font-semibold tracking-tight text-foreground">Products</h1>
-        <p className="text-muted-foreground mt-1 text-sm">Find what you need</p>
+        <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-foreground">Products</h1>
+        <p className="text-muted-foreground mt-1 text-[13px]">Find what you need</p>
       </div>
 
       <div className="flex flex-col sm:flex-row gap-3 mb-8">
@@ -51,12 +51,12 @@ export default function ProductsPage() {
           value={q}
           onChange={(e) => setQ(e.target.value)}
           placeholder="Search products..."
-          className="flex-1 h-11 px-4 rounded-xl bg-card border border-border text-sm text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+          className="flex-1 h-11 px-4 rounded-xl bg-card border border-border text-[15px] text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30 focus:border-[#0071e3]"
         />
         <select
           value={cat}
           onChange={(e) => setCat(e.target.value)}
-          className="h-11 px-4 rounded-xl bg-card border border-border text-sm text-foreground focus:outline-none focus:ring-2 focus:ring-ring/30"
+          className="h-11 px-4 rounded-xl bg-card border border-border text-[15px] text-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30"
         >
           <option value="all">All categories</option>
           {categories.map((c) => (
@@ -74,10 +74,10 @@ export default function ProductsPage() {
           ))}
         </div>
       ) : filtered.length === 0 ? (
-        <div className="text-center py-20 text-muted-foreground">No products found</div>
+        <div className="text-center py-20 text-muted-foreground text-[15px]">No products found</div>
       ) : (
         <>
-          <p className="text-sm text-muted-foreground mb-4">{filtered.length} products</p>
+          <p className="text-[13px] text-muted-foreground mb-4">{filtered.length} products</p>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
             {filtered.map((p) => (
               <ProductCard key={p.id} product={p} />

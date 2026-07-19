@@ -24,7 +24,7 @@ export default function Navbar() {
     href === '/' ? pathname === '/' : pathname.startsWith(href);
 
   return (
-    <header className="sticky top-0 z-50 bg-card/80 backdrop-blur-xl border-b border-border">
+    <header className="sticky top-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-black/5 dark:border-white/10">
       <div className="max-w-6xl mx-auto px-4 sm:px-6">
         <div className="flex items-center justify-between h-14">
           <Link href="/" className="text-[17px] font-semibold tracking-tight text-foreground">
@@ -36,9 +36,9 @@ export default function Navbar() {
               <Link
                 key={l.href}
                 href={l.href}
-                className={`px-3 py-1.5 text-sm rounded-full transition-colors ${
+                className={`px-3 py-1.5 text-[13px] font-medium rounded-full transition-colors ${
                   isActive(l.href)
-                    ? 'bg-muted text-foreground font-medium'
+                    ? 'text-foreground bg-black/5 dark:bg-white/10'
                     : 'text-muted-foreground hover:text-foreground'
                 }`}
               >
@@ -50,7 +50,7 @@ export default function Navbar() {
           <div className="flex items-center gap-1">
             <button
               onClick={toggle}
-              className="p-2 rounded-full hover:bg-muted text-muted-foreground"
+              className="w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-muted-foreground"
               aria-label="Toggle theme"
             >
               {theme === 'dark' ? (
@@ -67,7 +67,7 @@ export default function Navbar() {
 
             <Link
               href="/cart"
-              className="relative p-2 rounded-full hover:bg-muted text-muted-foreground"
+              className="relative w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-muted-foreground"
               aria-label="Cart"
             >
               <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
@@ -77,7 +77,7 @@ export default function Navbar() {
                 <path d="M6 6L5 3H2" />
               </svg>
               {count > 0 && (
-                <span className="absolute -top-0.5 -right-0.5 min-w-[16px] h-4 px-1 rounded-full bg-primary text-primary-foreground text-[10px] font-semibold flex items-center justify-center">
+                <span className="absolute -top-1 -right-1 min-w-[16px] h-4 px-1 rounded-full bg-[#0071e3] text-white text-[10px] font-semibold flex items-center justify-center">
                   {count}
                 </span>
               )}
@@ -85,10 +85,10 @@ export default function Navbar() {
 
             {user ? (
               <div className="hidden sm:flex items-center gap-2 ml-1">
-                <span className="text-sm text-muted-foreground max-w-[100px] truncate">{user.username}</span>
+                <span className="text-[13px] text-muted-foreground max-w-[100px] truncate">{user.username}</span>
                 <button
                   onClick={logout}
-                  className="text-sm text-muted-foreground hover:text-foreground px-2 py-1 rounded-lg hover:bg-muted"
+                  className="text-[13px] text-muted-foreground hover:text-foreground px-2 py-1 rounded-lg hover:bg-black/5 dark:hover:bg-white/10"
                 >
                   Sign out
                 </button>
@@ -96,14 +96,14 @@ export default function Navbar() {
             ) : (
               <Link
                 href="/login"
-                className="hidden sm:inline-flex ml-1 text-sm font-medium text-primary-foreground bg-primary px-3 py-1.5 rounded-full hover:opacity-90"
+                className="hidden sm:inline-flex ml-1 text-[13px] font-medium text-white bg-[#0071e3] px-3.5 py-1.5 rounded-full hover:bg-[#0077ed]"
               >
                 Sign in
               </Link>
             )}
 
             <button
-              className="md:hidden p-2 rounded-full hover:bg-muted text-muted-foreground"
+              className="md:hidden w-8 h-8 flex items-center justify-center rounded-full hover:bg-black/5 dark:hover:bg-white/10 text-muted-foreground"
               onClick={() => setOpen(!open)}
               aria-label="Menu"
             >
@@ -119,14 +119,14 @@ export default function Navbar() {
         </div>
 
         {open && (
-          <div className="md:hidden pb-3 border-t border-border pt-2 space-y-1">
+          <div className="md:hidden pb-3 border-t border-black/5 dark:border-white/10 pt-2 space-y-1">
             {links.map((l) => (
               <Link
                 key={l.href}
                 href={l.href}
                 onClick={() => setOpen(false)}
-                className={`block px-3 py-2 text-sm rounded-lg ${
-                  isActive(l.href) ? 'bg-muted text-foreground font-medium' : 'text-muted-foreground'
+                className={`block px-3 py-2 text-[13px] font-medium rounded-lg ${
+                  isActive(l.href) ? 'text-foreground bg-black/5 dark:bg-white/10' : 'text-muted-foreground'
                 }`}
               >
                 {l.label}
@@ -138,12 +138,12 @@ export default function Navbar() {
                   logout();
                   setOpen(false);
                 }}
-                className="block w-full text-left px-3 py-2 text-sm text-muted-foreground"
+                className="block w-full text-left px-3 py-2 text-[13px] font-medium text-muted-foreground"
               >
                 Sign out ({user.username})
               </button>
             ) : (
-              <Link href="/login" onClick={() => setOpen(false)} className="block px-3 py-2 text-sm text-primary">
+              <Link href="/login" onClick={() => setOpen(false)} className="block px-3 py-2 text-[13px] font-medium text-[#0071e3]">
                 Sign in
               </Link>
             )}

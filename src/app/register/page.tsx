@@ -35,57 +35,57 @@ export default function RegisterPage() {
     <div className="min-h-[70vh] flex items-center justify-center px-4 py-12">
       <div className="w-full max-w-md">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground">Create account</h1>
-          <p className="mt-2 text-sm text-muted-foreground">Join Fahmi Store</p>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-foreground">Create account</h1>
+          <p className="mt-2 text-[15px] text-muted-foreground">Join Fahmi Store</p>
         </div>
 
-        <form onSubmit={onSubmit} className="bg-card border border-border rounded-3xl p-6 sm:p-8 shadow-sm space-y-4">
+        <form onSubmit={onSubmit} className="bg-card rounded-3xl p-6 sm:p-8 space-y-4">
           <div>
-            <label className="block text-sm font-medium text-foreground mb-1.5">Username</label>
+            <label className="block text-[13px] font-medium text-foreground mb-1.5">Username</label>
             <input
               value={username}
               onChange={(e) => setUsername(e.target.value)}
-              className="w-full h-11 px-4 rounded-xl bg-background border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+              className="w-full h-11 px-4 rounded-xl bg-background border border-border text-[15px] text-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30 focus:border-[#0071e3]"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-1.5">Email</label>
+            <label className="block text-[13px] font-medium text-foreground mb-1.5">Email</label>
             <input
               type="email"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
-              className="w-full h-11 px-4 rounded-xl bg-background border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+              className="w-full h-11 px-4 rounded-xl bg-background border border-border text-[15px] text-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30 focus:border-[#0071e3]"
               required
             />
           </div>
           <div>
-            <label className="block text-sm font-medium text-foreground mb-1.5">Password</label>
+            <label className="block text-[13px] font-medium text-foreground mb-1.5">Password</label>
             <input
               type="password"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
-              className="w-full h-11 px-4 rounded-xl bg-background border border-border text-sm focus:outline-none focus:ring-2 focus:ring-ring/30 focus:border-ring"
+              className="w-full h-11 px-4 rounded-xl bg-background border border-border text-[15px] text-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3]/30 focus:border-[#0071e3]"
               minLength={4}
               required
             />
           </div>
 
-          {error && <p className="text-sm text-destructive">{error}</p>}
-          {ok && <p className="text-sm text-success">{ok}</p>}
+          {error && <p className="text-[13px] text-destructive">{error}</p>}
+          {ok && <p className="text-[13px] text-success">{ok}</p>}
 
           <button
             type="submit"
             disabled={loading}
-            className="w-full h-11 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 disabled:opacity-50"
+            className="w-full h-11 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] disabled:opacity-50"
           >
-            {loading ? 'Creating…' : 'Create account'}
+            {loading ? 'Creating...' : 'Create account'}
           </button>
         </form>
 
-        <p className="mt-6 text-center text-sm text-muted-foreground">
+        <p className="mt-6 text-center text-[15px] text-muted-foreground">
           Already have an account?{' '}
-          <Link href="/login" className="text-primary hover:underline">
+          <Link href="/login" className="text-[#0071e3] hover:underline">
             Sign in
           </Link>
         </p>

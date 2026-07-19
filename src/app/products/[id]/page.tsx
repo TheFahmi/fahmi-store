@@ -53,9 +53,9 @@ export default function ProductDetailPage() {
         <div className="grid md:grid-cols-2 gap-10">
           <div className="aspect-square rounded-3xl bg-muted animate-pulse" />
           <div className="space-y-4">
-            <div className="h-8 w-2/3 bg-muted rounded animate-pulse" />
-            <div className="h-4 w-1/3 bg-muted rounded animate-pulse" />
-            <div className="h-20 w-full bg-muted rounded animate-pulse" />
+            <div className="h-8 w-2/3 bg-muted rounded-xl animate-pulse" />
+            <div className="h-4 w-1/3 bg-muted rounded-xl animate-pulse" />
+            <div className="h-20 w-full bg-muted rounded-xl animate-pulse" />
           </div>
         </div>
       </div>
@@ -65,8 +65,8 @@ export default function ProductDetailPage() {
   if (!product) {
     return (
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-20 text-center">
-        <p className="text-muted-foreground">Product not found</p>
-        <Link href="/products" className="text-primary text-sm mt-4 inline-block">
+        <p className="text-muted-foreground text-[15px]">Product not found</p>
+        <Link href="/products" className="text-[#0071e3] text-[15px] mt-4 inline-block hover:underline">
           Back to products
         </Link>
       </div>
@@ -75,12 +75,12 @@ export default function ProductDetailPage() {
 
   return (
     <div className="max-w-6xl mx-auto px-4 sm:px-6 py-10">
-      <Link href="/products" className="text-sm text-muted-foreground hover:text-foreground">
-        ← Products
+      <Link href="/products" className="text-[13px] text-muted-foreground hover:text-foreground">
+        &larr; Products
       </Link>
 
       <div className="mt-6 grid md:grid-cols-2 gap-10">
-        <div className="aspect-square rounded-3xl bg-muted overflow-hidden border border-border">
+        <div className="aspect-square rounded-3xl bg-muted overflow-hidden">
           {/* eslint-disable-next-line @next/next/no-img-element */}
           <img
             src={productImage(product.image, product.nama)}
@@ -90,14 +90,14 @@ export default function ProductDetailPage() {
         </div>
 
         <div>
-          <h1 className="text-3xl font-semibold tracking-tight text-foreground">{product.nama}</h1>
+          <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-foreground">{product.nama}</h1>
           {product.rating != null && (
-            <p className="mt-2 text-sm text-muted-foreground">★ {Number(product.rating).toFixed(1)} rating</p>
+            <p className="mt-2 text-[13px] text-muted-foreground">{Number(product.rating).toFixed(1)} rating</p>
           )}
-          <p className="mt-4 text-2xl font-semibold text-foreground">{formatIDR(product.harga)}</p>
+          <p className="mt-4 text-2xl font-semibold text-foreground tracking-[-0.01em]">{formatIDR(product.harga)}</p>
           <p className="mt-4 text-[15px] leading-relaxed text-muted-foreground">{product.deskripsi}</p>
 
-          <div className="mt-6 flex items-center gap-3 text-sm text-muted-foreground">
+          <div className="mt-6 flex items-center gap-3 text-[13px] text-muted-foreground">
             <span className={product.stok > 0 ? 'text-success' : 'text-destructive'}>
               {product.stok > 0 ? `${product.stok} in stock` : 'Out of stock'}
             </span>
@@ -109,9 +109,9 @@ export default function ProductDetailPage() {
                 className="w-10 h-10 text-lg text-muted-foreground hover:text-foreground"
                 onClick={() => setQty((q) => Math.max(1, q - 1))}
               >
-                −
+                &#8722;
               </button>
-              <span className="w-10 text-center text-sm font-medium">{qty}</span>
+              <span className="w-10 text-center text-[15px] font-medium">{qty}</span>
               <button
                 className="w-10 h-10 text-lg text-muted-foreground hover:text-foreground"
                 onClick={() => setQty((q) => Math.min(product.stok || 99, q + 1))}
@@ -122,14 +122,14 @@ export default function ProductDetailPage() {
             <button
               disabled={busy || product.stok <= 0}
               onClick={onAdd}
-              className="flex-1 h-11 rounded-full bg-primary text-primary-foreground text-sm font-medium hover:opacity-90 disabled:opacity-50"
+              className="flex-1 h-11 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] disabled:opacity-50"
             >
-              {busy ? 'Adding…' : 'Add to cart'}
+              {busy ? 'Adding...' : 'Add to cart'}
             </button>
           </div>
 
-          {msg && <p className="mt-3 text-sm text-success">{msg}</p>}
-          {err && <p className="mt-3 text-sm text-destructive">{err}</p>}
+          {msg && <p className="mt-3 text-[13px] text-success">{msg}</p>}
+          {err && <p className="mt-3 text-[13px] text-destructive">{err}</p>}
         </div>
       </div>
     </div>

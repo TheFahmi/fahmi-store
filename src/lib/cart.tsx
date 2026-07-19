@@ -56,14 +56,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   const add = useCallback(
     async (product: Product, qty = 1) => {
       if (!user) throw new Error('Login dulu');
-      await api.addToCart({
-        username: user.username,
-        idproduct: product.id,
-        qty,
-        harga: product.harga,
-        nama: product.nama,
-        image: product.image,
-      });
+      await api.addToCart(user.id, product.id, qty, product.harga * qty);
       await refresh();
     },
     [user, refresh]
@@ -83,13 +76,13 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
         await remove(id);
         return;
       }
-      await api.updateCart(id, { qty });
+      await api.updateCart(id, qty);
       await refresh();
     },
     [remove, refresh]
   );
 
-  const count = items.reduce((s, i) => s + (Number(i.qty) || 0), 0);
+  const count = items.reduce((s, i) => s + (Number(i.kuantiti) || Number(i.qty) || 0), 0);
 
   return (
     <CartContext.Provider value={{ items, count, loading, refresh, add, remove, setQty }}>

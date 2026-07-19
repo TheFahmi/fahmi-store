@@ -31,11 +31,13 @@ export type User = {
 export type CartItem = {
   id: number;
   idproduct?: number;
-  nama: string;
+  Nama_product?: string;
+  nama?: string;
   harga: number;
   image?: string | null;
-  qty: number;
-  total?: number;
+  kuantiti?: number;
+  qty?: number;
+  Username?: string;
   username?: string;
 };
 
@@ -73,15 +75,15 @@ export const api = {
     }),
   getCart: (username: string) =>
     request<CartItem[]>(`/cart/cart?username=${encodeURIComponent(username)}`),
-  addToCart: (payload: Record<string, unknown>) =>
+  addToCart: (user_id: number, product_id: number, kuantiti: number, total_harga: number) =>
     request<unknown>('/cartplus/cartplus', {
       method: 'POST',
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ user_id, product_id, kuantiti, total_harga }),
     }),
-  updateCart: (id: number, payload: Record<string, unknown>) =>
+  updateCart: (id: number, kuantiti: number) =>
     request<unknown>(`/editcart/editcart/${id}`, {
       method: 'PUT',
-      body: JSON.stringify(payload),
+      body: JSON.stringify({ kuantiti }),
     }),
   deleteCart: (id: number) =>
     request<unknown>(`/deletecart/deletecart/${id}`, { method: 'DELETE' }),

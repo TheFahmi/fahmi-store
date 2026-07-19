@@ -165,13 +165,15 @@ export default function ProductDetailPage() {
             <span className="text-[13px] text-muted-foreground">{reviews} reviews</span>
           </div>
 
-          <div className="mt-5 flex items-baseline gap-3">
-            <p className="text-3xl font-semibold text-foreground tracking-[-0.02em]">{formatIDR(product.harga)}</p>
-            {originalPrice > 0 && (
-              <p className="text-[16px] text-muted-foreground line-through">{formatIDR(originalPrice)}</p>
-            )}
+          <div className="mt-5 flex flex-col gap-1.5">
+            <div className="flex items-baseline gap-2 flex-wrap">
+              <p className="text-2xl sm:text-3xl font-semibold text-foreground tracking-[-0.02em]">{formatIDR(product.harga)}</p>
+              {originalPrice > 0 && (
+                <p className="text-[15px] text-muted-foreground line-through">{formatIDR(originalPrice)}</p>
+              )}
+            </div>
             {discount > 0 && (
-              <span className="text-[12px] font-semibold text-[#ff3b30] bg-[#ff3b30]/10 px-2 py-0.5 rounded-full">Save {formatIDR(discount)}</span>
+              <span className="self-start text-[11px] font-semibold text-[#ff3b30] bg-[#ff3b30]/10 px-2 py-0.5 rounded-full">Save {formatIDR(discount)}</span>
             )}
           </div>
 

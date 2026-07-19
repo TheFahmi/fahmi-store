@@ -81,14 +81,14 @@ export default function CartPage() {
       <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-foreground">Shopping cart</h1>
       <p className="text-[14px] text-muted-foreground mt-1">{items.length} {items.length === 1 ? 'item' : 'items'} in your cart</p>
 
-      <div className="mt-8 grid lg:grid-cols-3 gap-8">
+      <div className="mt-8 grid lg:grid-cols-3 gap-8 overflow-hidden">
         {/* Cart items */}
-        <div className="lg:col-span-2 space-y-3">
+        <div className="lg:col-span-2 space-y-3 min-w-0 overflow-hidden">
           {items.map((item) => {
             const qty = Number(item.kuantiti || item.qty || 0);
             const nama = item.Nama_product || item.nama || 'Product';
             return (
-            <div key={item.id} className="flex gap-4 p-4 rounded-2xl bg-card border border-border">
+            <div key={item.id} className="flex gap-4 p-4 rounded-2xl bg-card border border-border overflow-hidden">
               <Link href={`/products/${item.idproduct || item.id}`} className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-muted overflow-hidden shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
@@ -118,7 +118,7 @@ export default function CartPage() {
                       aria-label="Increase"
                     >+</button>
                   </div>
-                  <div className="flex items-center gap-4">
+                  <div className="flex items-center gap-2 min-w-0 flex-wrap justify-end">
                     <span className="text-[15px] font-semibold text-foreground">{formatIDR(Number(item.harga) * qty)}</span>
                     <button
                       onClick={() => remove(item.id)}

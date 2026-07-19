@@ -50,7 +50,7 @@ export default function LoginPage() {
   return (
     <div className="min-h-[calc(100vh-3.5rem)] grid lg:grid-cols-2">
       {/* Brand hero (left) */}
-      <div className="hidden lg:flex flex-col justify-between bg-[#1d1d1f] text-white p-12">
+      <div className="hidden lg:flex flex-col justify-between bg-foreground text-background p-12">
         <Link href="/" className="flex items-center gap-2">
           <span className="w-7 h-7 rounded-lg bg-[#0071e3] flex items-center justify-center">
             <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>

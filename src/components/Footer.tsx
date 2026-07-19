@@ -51,7 +51,7 @@ function Facebook() {
 
 export default function Footer() {
   return (
-    <footer className="mt-auto bg-[#1d1d1f] text-[#f5f5f7]">
+    <footer className="mt-auto bg-foreground text-background">
       <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14">
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-10">
           {/* Shop */}

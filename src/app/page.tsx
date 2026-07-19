@@ -79,7 +79,7 @@ export default function HomePage() {
   return (
     <div>
       {/* HERO — full-width carousel banner */}
-      <section className="bg-[#1d1d1f] text-white">
+      <section className="bg-foreground text-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
@@ -298,7 +298,7 @@ export default function HomePage() {
       </section>
 
       {/* NEWSLETTER */}
-      <section className="bg-[#1d1d1f] text-white">
+      <section className="bg-foreground text-background">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em]">Stay in the loop</h2>

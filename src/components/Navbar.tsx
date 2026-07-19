@@ -44,7 +44,7 @@ export default function Navbar() {
   return (
     <header className="sticky top-0 z-50 bg-white/80 dark:bg-black/80 backdrop-blur-xl border-b border-black/5 dark:border-white/10">
       {/* Top bar — announcements */}
-      <div className="bg-[#1d1d1f] text-white">
+      <div className="bg-foreground text-background">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 h-8 flex items-center justify-between text-[11px]">
           <div className="flex items-center gap-4 overflow-x-auto no-scrollbar">
             <span className="whitespace-nowrap">Free shipping over Rp 500.000</span>

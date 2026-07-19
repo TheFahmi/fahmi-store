@@ -8,6 +8,17 @@ const nextConfig: NextConfig = {
       { protocol: 'https', hostname: 'exam.mfah.me' },
     ],
   },
+  // Disable static page caching during dev/iteration
+  async headers() {
+    return [
+      {
+        source: '/:path*',
+        headers: [
+          { key: 'Cache-Control', value: 'no-cache, no-store, must-revalidate' },
+        ],
+      },
+    ];
+  },
   async rewrites() {
     return [
       // Express backend on :2002 — singular /product/, NOT /products/

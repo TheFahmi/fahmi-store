@@ -79,30 +79,30 @@ export default function HomePage() {
   return (
     <div>
       {/* HERO — full-width carousel banner */}
-      <section className="bg-[#1d1d1f] text-white">
+      <section className="bg-white dark:bg-[#1d1d1f] text-foreground dark:text-foreground dark:text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 py-16 md:py-24 lg:py-28">
           <div className="grid md:grid-cols-2 gap-10 items-center">
             <div>
-              <span className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1 rounded-full bg-white/10 text-white/80 mb-5">
+              <span className="inline-flex items-center gap-1.5 text-[12px] font-medium px-3 py-1 rounded-full bg-black/5 dark:bg-white/10 text-foreground/80 dark:text-white/80 mb-5">
                 <span className="w-1.5 h-1.5 rounded-full bg-[#30d158]" />
                 New season, new arrivals
               </span>
               <h1 className="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-[-0.03em] leading-[1.05]">
                 Premium products.<br />Honest prices.
               </h1>
-              <p className="mt-5 text-lg text-white/70 max-w-md">
+              <p className="mt-5 text-lg text-foreground/70 dark:text-white/70 max-w-md">
                 Electronics, fashion, sports &amp; more — curated for everyday excellence, delivered fast to your door.
               </p>
               <div className="mt-8 flex flex-wrap items-center gap-3">
                 <Link
                   href="/products"
-                  className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] transition-colors"
+                  className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-[#0071e3] text-foreground dark:text-white text-[15px] font-medium hover:bg-[#0077ed] transition-colors"
                 >
                   Shop now
                 </Link>
                 <Link
                   href="/products?cat=1"
-                  className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-white/10 text-white text-[15px] font-medium hover:bg-white/20 transition-colors"
+                  className="inline-flex items-center justify-center h-12 px-7 rounded-full bg-black/5 dark:bg-white/10 text-foreground dark:text-foreground dark:text-white text-[15px] font-medium hover:bg-black/10 dark:bg-white/20 transition-colors"
                 >
                   Browse electronics
                 </Link>
@@ -114,7 +114,7 @@ export default function HomePage() {
                       <path d="M10 1.5l2.6 5.3 5.9.9-4.3 4.2 1 5.9L10 15.9 4.8 18.8l1-5.9L1.5 8.6l5.9-.9L10 1.5z" />
                     </svg>
                   ))}
-                  <span className="text-[13px] text-white/70 ml-1">4.9 (2.3K reviews)</span>
+                  <span className="text-[13px] text-foreground/70 dark:text-white/70 ml-1">4.9 (2.3K reviews)</span>
                 </div>
               </div>
             </div>
@@ -128,20 +128,20 @@ export default function HomePage() {
                   <Link
                     key={p.id}
                     href={`/products/${p.id}`}
-                    className={`group block rounded-2xl overflow-hidden border border-white/10 ${i % 2 === 0 ? 'translate-y-0' : 'translate-y-6'}`}
+                    className={`group block rounded-2xl overflow-hidden border border-black/10 dark:border-white/10 ${i % 2 === 0 ? 'translate-y-0' : 'translate-y-6'}`}
                   >
                     <div
                       className="aspect-square flex flex-col items-center justify-center p-5 text-center"
                       style={{ background: bg }}
                     >
-                      <p className="text-[13px] font-medium text-white line-clamp-2">{p.nama}</p>
-                      <p className="mt-2 text-[11px] text-white/70">{formatIDR(p.harga)}</p>
+                      <p className="text-[13px] font-medium text-foreground dark:text-foreground dark:text-white line-clamp-2">{p.nama}</p>
+                      <p className="mt-2 text-[11px] text-foreground/70 dark:text-white/70">{formatIDR(p.harga)}</p>
                     </div>
                   </Link>
                 );
               })}
               {featured.length === 0 && !loading && (
-                <div className="col-span-2 aspect-[4/3] rounded-2xl bg-white/5 flex items-center justify-center text-white/40 text-[14px]">
+                <div className="col-span-2 aspect-[4/3] rounded-2xl bg-black/5 dark:bg-white/5 flex items-center justify-center text-foreground/40 dark:text-white/40 text-[14px]">
                   Loading store…
                 </div>
               )}
@@ -151,12 +151,12 @@ export default function HomePage() {
       </section>
 
       {/* TRUST BADGES */}
-      <section className="border-b border-black/5 dark:border-white/10">
+      <section className="border-b border-black/5 dark:border-black/10 dark:border-white/10">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {TRUST.map((t) => (
               <div key={t.title} className="flex items-center gap-3">
-                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-white/10 text-[#0071e3]">
+                <span className="w-10 h-10 flex items-center justify-center rounded-full bg-black/5 dark:bg-black/5 dark:bg-white/10 text-[#0071e3]">
                   {t.icon}
                 </span>
                 <div>
@@ -238,16 +238,16 @@ export default function HomePage() {
       </section>
 
       {/* PROMO BANNER — solid color */}
-      <section className="bg-[#0071e3] text-white">
+      <section className="bg-[#0071e3] text-foreground dark:text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-14 md:py-20">
           <div className="flex flex-col md:flex-row items-center justify-between gap-6">
             <div>
-              <p className="text-[12px] font-medium uppercase tracking-wider text-white/70 mb-2">Limited time offer</p>
+              <p className="text-[12px] font-medium uppercase tracking-wider text-foreground/70 dark:text-white/70 mb-2">Limited time offer</p>
               <h2 className="text-3xl md:text-5xl font-semibold tracking-[-0.03em] leading-tight">
                 Save 10% on your first order
               </h2>
-              <p className="mt-3 text-white/80 text-[15px] max-w-md">
-                Use code <span className="font-semibold text-white">FAHMI10</span> at checkout. Valid for new customers only.
+              <p className="mt-3 text-foreground/80 dark:text-white/80 text-[15px] max-w-md">
+                Use code <span className="font-semibold text-foreground dark:text-foreground dark:text-white">FAHMI10</span> at checkout. Valid for new customers only.
               </p>
             </div>
             <Link
@@ -284,7 +284,7 @@ export default function HomePage() {
       )}
 
       {/* STATS */}
-      <section className="border-y border-black/5 dark:border-white/10 bg-muted/40">
+      <section className="border-y border-black/5 dark:border-black/10 dark:border-white/10 bg-muted/40">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-12">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
             {STATS.map((s) => (
@@ -298,11 +298,11 @@ export default function HomePage() {
       </section>
 
       {/* NEWSLETTER */}
-      <section className="bg-[#1d1d1f] text-white">
+      <section className="bg-white dark:bg-[#1d1d1f] text-foreground dark:text-foreground dark:text-white">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 py-16">
           <div className="text-center max-w-xl mx-auto">
             <h2 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em]">Stay in the loop</h2>
-            <p className="mt-3 text-white/70 text-[15px]">
+            <p className="mt-3 text-foreground/70 dark:text-white/70 text-[15px]">
               Subscribe for exclusive deals, new arrivals, and member-only offers.
             </p>
             <form className="mt-6 flex flex-col sm:flex-row gap-2 max-w-lg mx-auto" onSubmit={(e) => e.preventDefault()}>
@@ -313,12 +313,12 @@ export default function HomePage() {
               />
               <button
                 type="submit"
-                className="h-14 px-7 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-white text-[17px] font-medium transition-colors"
+                className="h-14 px-7 rounded-full bg-[#0071e3] hover:bg-[#0077ed] text-foreground dark:text-foreground dark:text-white text-[17px] font-medium transition-colors"
               >
                 Subscribe
               </button>
             </form>
-            <p className="mt-3 text-[12px] text-white/50">We respect your privacy. Unsubscribe anytime.</p>
+            <p className="mt-3 text-[12px] text-foreground/50 dark:text-white/50">We respect your privacy. Unsubscribe anytime.</p>
           </div>
         </div>
       </section>

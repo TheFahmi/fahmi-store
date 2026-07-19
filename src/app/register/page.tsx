@@ -58,10 +58,10 @@ export default function RegisterPage() {
   return (
     <div className="min-h-[calc(100vh-3.5rem)] grid lg:grid-cols-2">
       {/* Brand hero (left) */}
-      <div className="hidden lg:flex flex-col justify-between bg-[#1d1d1f] text-white p-12">
+      <div className="hidden lg:flex flex-col justify-between bg-white dark:bg-[#1d1d1f] text-foreground dark:text-foreground dark:text-white p-12">
         <Link href="/" className="flex items-center gap-2">
           <span className="w-7 h-7 rounded-lg bg-[#0071e3] flex items-center justify-center">
-            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
+            <svg className="w-4 h-4 text-foreground dark:text-foreground dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
               <path d="M6 6h15l-1.5 9h-12z" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /><path d="M6 6L5 3H2" />
             </svg>
           </span>
@@ -72,7 +72,7 @@ export default function RegisterPage() {
           <h2 className="text-4xl xl:text-5xl font-semibold tracking-[-0.03em] leading-[1.1]">
             Join Fahmi Store.<br />Unlock the best.
           </h2>
-          <p className="mt-5 text-white/70 text-[16px] max-w-md">
+          <p className="mt-5 text-foreground/70 dark:text-white/70 text-[16px] max-w-md">
             Create an account to track orders, save your wishlist, and get exclusive member-only deals.
           </p>
           <ul className="mt-8 space-y-3">
@@ -82,7 +82,7 @@ export default function RegisterPage() {
               'Save items to your wishlist',
               'Free shipping on first order',
             ].map((b) => (
-              <li key={b} className="flex items-center gap-2.5 text-[14px] text-white/80">
+              <li key={b} className="flex items-center gap-2.5 text-[14px] text-foreground/80 dark:text-white/80">
                 <svg className="w-4 h-4 text-[#30d158] shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
                   <path d="M5 13l4 4L19 7" />
                 </svg>
@@ -92,7 +92,7 @@ export default function RegisterPage() {
           </ul>
         </div>
 
-        <p className="text-[12px] text-white/40">&copy; {new Date().getFullYear()} Fahmi Store. Crafted with care.</p>
+        <p className="text-[12px] text-foreground/40 dark:text-white/40">&copy; {new Date().getFullYear()} Fahmi Store. Crafted with care.</p>
       </div>
 
       {/* Form (right) */}
@@ -178,7 +178,7 @@ export default function RegisterPage() {
               <button
                 type="submit"
                 disabled={loading || !agree}
-                className="w-full h-11 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] disabled:opacity-50 transition-colors"
+                className="w-full h-11 rounded-full bg-[#0071e3] text-foreground dark:text-white text-[15px] font-medium hover:bg-[#0077ed] disabled:opacity-50 transition-colors"
               >
                 {loading ? 'Creating…' : 'Create account'}
               </button>

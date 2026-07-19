@@ -50,10 +50,10 @@ export default function LoginPage() {
   return (
     <div className="min-h-[calc(100vh-3.5rem)] grid lg:grid-cols-2">
       {/* Brand hero (left) */}
-      <div className="hidden lg:flex flex-col justify-between bg-[#1d1d1f] text-white p-12">
+      <div className="hidden lg:flex flex-col justify-between bg-white dark:bg-[#1d1d1f] text-foreground dark:text-foreground dark:text-white p-12">
         <Link href="/" className="flex items-center gap-2">
           <span className="w-7 h-7 rounded-lg bg-[#0071e3] flex items-center justify-center">
-            <svg className="w-4 h-4 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
+            <svg className="w-4 h-4 text-foreground dark:text-foreground dark:text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2.2}>
               <path d="M6 6h15l-1.5 9h-12z" /><circle cx="9" cy="20" r="1" /><circle cx="18" cy="20" r="1" /><path d="M6 6L5 3H2" />
             </svg>
           </span>
@@ -64,28 +64,28 @@ export default function LoginPage() {
           <h2 className="text-4xl xl:text-5xl font-semibold tracking-[-0.03em] leading-[1.1]">
             Welcome back.<br />Shop the best.
           </h2>
-          <p className="mt-5 text-white/70 text-[16px] max-w-md">
+          <p className="mt-5 text-foreground/70 dark:text-white/70 text-[16px] max-w-md">
             Premium products, fast delivery, and member-only deals. Sign in to pick up where you left off.
           </p>
           <div className="mt-8 flex items-center gap-6">
             <div>
               <p className="text-2xl font-semibold">10K+</p>
-              <p className="text-[12px] text-white/60">Happy customers</p>
+              <p className="text-[12px] text-foreground/60 dark:text-white/60">Happy customers</p>
             </div>
             <div className="w-px h-10 bg-white/15" />
             <div>
               <p className="text-2xl font-semibold">4.9</p>
-              <p className="text-[12px] text-white/60">Average rating</p>
+              <p className="text-[12px] text-foreground/60 dark:text-white/60">Average rating</p>
             </div>
             <div className="w-px h-10 bg-white/15" />
             <div>
               <p className="text-2xl font-semibold">500+</p>
-              <p className="text-[12px] text-white/60">Products</p>
+              <p className="text-[12px] text-foreground/60 dark:text-white/60">Products</p>
             </div>
           </div>
         </div>
 
-        <p className="text-[12px] text-white/40">&copy; {new Date().getFullYear()} Fahmi Store. Crafted with care.</p>
+        <p className="text-[12px] text-foreground/40 dark:text-white/40">&copy; {new Date().getFullYear()} Fahmi Store. Crafted with care.</p>
       </div>
 
       {/* Form (right) */}
@@ -162,7 +162,7 @@ export default function LoginPage() {
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full h-11 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] disabled:opacity-50 transition-colors"
+                className="w-full h-11 rounded-full bg-[#0071e3] text-foreground dark:text-white text-[15px] font-medium hover:bg-[#0077ed] disabled:opacity-50 transition-colors"
               >
                 {loading ? 'Signing in…' : 'Sign in'}
               </button>

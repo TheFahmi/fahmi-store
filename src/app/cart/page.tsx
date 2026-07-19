@@ -32,7 +32,7 @@ export default function CartPage() {
     );
   }
 
-  const subtotal = items.reduce((s, i) => s + Number(i.harga || 0) * Number(i.qty || 0), 0);
+  const subtotal = items.reduce((s, i) => s + Number(i.harga || 0) * Number(i.kuantiti || i.qty || 0), 0);
   const shipping = subtotal > 500000 || subtotal === 0 ? 0 : 25000;
   const discount = applied ? Math.round(subtotal * 0.1) : 0;
   const tax = Math.round((subtotal - discount) * 0.11);
@@ -84,20 +84,23 @@ export default function CartPage() {
       <div className="mt-8 grid lg:grid-cols-3 gap-8">
         {/* Cart items */}
         <div className="lg:col-span-2 space-y-3">
-          {items.map((item) => (
+          {items.map((item) => {
+            const qty = Number(item.kuantiti || item.qty || 0);
+            const nama = item.Nama_product || item.nama || 'Product';
+            return (
             <div key={item.id} className="flex gap-4 p-4 rounded-2xl bg-card border border-border">
               <Link href={`/products/${item.idproduct || item.id}`} className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-muted overflow-hidden shrink-0">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
-                  src={productImage(item.image, item.nama)}
-                  alt={item.nama}
+                  src={productImage(item.image, nama)}
+                  alt={nama}
                   className="w-full h-full object-cover"
                 />
               </Link>
               <div className="flex-1 min-w-0 flex flex-col justify-between">
                 <div>
                   <Link href={`/products/${item.idproduct || item.id}`} className="text-[15px] font-medium text-foreground hover:text-[#0071e3] line-clamp-2">
-                    {item.nama}
+                    {nama}
                   </Link>
                   <p className="text-[13px] text-muted-foreground mt-0.5">{formatIDR(Number(item.harga))} each</p>
                 </div>
@@ -105,18 +108,18 @@ export default function CartPage() {
                   <div className="flex items-center rounded-full border border-border">
                     <button
                       className="w-8 h-8 text-muted-foreground hover:text-foreground"
-                      onClick={() => setQty(item.id, Number(item.qty) - 1)}
+                      onClick={() => setQty(item.id, qty - 1)}
                       aria-label="Decrease"
                     >&#8722;</button>
-                    <span className="w-8 text-center text-[13px] font-medium">{item.qty}</span>
+                    <span className="w-8 text-center text-[13px] font-medium">{qty}</span>
                     <button
                       className="w-8 h-8 text-muted-foreground hover:text-foreground"
-                      onClick={() => setQty(item.id, Number(item.qty) + 1)}
+                      onClick={() => setQty(item.id, qty + 1)}
                       aria-label="Increase"
                     >+</button>
                   </div>
                   <div className="flex items-center gap-4">
-                    <span className="text-[15px] font-semibold text-foreground">{formatIDR(Number(item.harga) * Number(item.qty))}</span>
+                    <span className="text-[15px] font-semibold text-foreground">{formatIDR(Number(item.harga) * qty)}</span>
                     <button
                       onClick={() => remove(item.id)}
                       className="text-muted-foreground hover:text-destructive transition-colors"
@@ -130,7 +133,8 @@ export default function CartPage() {
                 </div>
               </div>
             </div>
-          ))}
+            );
+          })}
 
           <Link href="/products" className="inline-flex items-center gap-1.5 text-[14px] text-[#0071e3] hover:underline mt-2">
             <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2}>

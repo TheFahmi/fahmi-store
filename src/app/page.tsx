@@ -309,7 +309,7 @@ export default function HomePage() {
               <input
                 type="email"
                 placeholder="Enter your email"
-                className="flex-1 h-14 px-5 rounded-full bg-background text-foreground text-[17px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3] border-2 border-background"
+                className="flex-1 h-14 px-5 rounded-full bg-background text-foreground text-[17px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3] border-2 border-[#0071e3]/30"
               />
               <button
                 type="submit"

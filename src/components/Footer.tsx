@@ -99,7 +99,7 @@ export default function Footer() {
               <input
                 type="email"
                 placeholder="Email address"
-                className="w-full h-12 px-4 rounded-xl bg-background text-foreground text-[15px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3] border-2 border-background"
+                className="w-full h-12 px-4 rounded-xl bg-background text-foreground text-[15px] placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-[#0071e3] border-2 border-[#0071e3]/30"
               />
               <button
                 type="submit"

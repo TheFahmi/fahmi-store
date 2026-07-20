@@ -242,7 +242,16 @@ export function generateInvoice(): string {
 }
 
 export function paymentDeadline(): string {
-  return new Date(Date.now() + 24 * 60 * 60 * 1000).toISOString();
+  return toMySQLDate(new Date(Date.now() + 24 * 60 * 60 * 1000));
+}
+
+export function toMySQLDate(d: Date): string {
+  const pad = (n: number) => String(n).padStart(2, '0');
+  return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+}
+
+export function nowMySQL(): string {
+  return toMySQLDate(new Date());
 }
 
 export function formatIDR(n: number) {

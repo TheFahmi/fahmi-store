@@ -10,6 +10,7 @@ import {
   formatIDR,
   generateInvoice,
   paymentDeadline,
+  nowMySQL,
   productImage,
 } from '@/lib/api';
 
@@ -155,7 +156,7 @@ export default function CheckoutPage() {
     try {
       const order = await api.createOrder({
         username: user.username,
-        date: new Date().toISOString(),
+        date: nowMySQL(),
         subtotal: total,
         totalquantity: totalQty,
         invoice,

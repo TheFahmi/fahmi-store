@@ -207,6 +207,8 @@ export default function Navbar() {
             { href: '/products?cat=3', label: 'Home & Living' },
             { href: '/products?cat=4', label: 'Sports' },
             { href: '/products?cat=5', label: 'Books' },
+            ...(user ? [{ href: '/orders', label: 'Orders' }] : []),
+            ...(user?.role === 'ADMIN' ? [{ href: '/admin', label: 'Admin' }] : []),
           ].map((l) => (
             <Link
               key={l.href}
@@ -214,6 +216,8 @@ export default function Navbar() {
               className={`px-3 py-2 text-[13px] font-medium rounded-full transition-colors ${
                 isActive(l.href.split('?')[0])
                   ? 'text-[#0071e3]'
+                  : l.label === 'Admin'
+                  ? 'text-[#ff3b30]'
                   : 'text-muted-foreground hover:text-foreground'
               }`}
             >
@@ -266,7 +270,13 @@ export default function Navbar() {
               <Link href="/wishlist" onClick={() => setOpen(false)} className="text-[14px] font-medium text-foreground">Wishlist</Link>
               <Link href="/cart" onClick={() => setOpen(false)} className="text-[14px] font-medium text-foreground">Cart ({count})</Link>
               {user ? (
-                <button onClick={() => { logout(); setOpen(false); }} className="text-[14px] font-medium text-destructive">Sign out</button>
+                <>
+                  <Link href="/orders" onClick={() => setOpen(false)} className="text-[14px] font-medium text-foreground">Orders</Link>
+                  {user.role === 'ADMIN' && (
+                    <Link href="/admin" onClick={() => setOpen(false)} className="text-[14px] font-medium text-[#ff3b30]">Admin</Link>
+                  )}
+                  <button onClick={() => { logout(); setOpen(false); }} className="text-[14px] font-medium text-destructive">Sign out</button>
+                </>
               ) : (
                 <Link href="/login" onClick={() => setOpen(false)} className="text-[14px] font-medium text-[#0071e3]">Sign in</Link>
               )}

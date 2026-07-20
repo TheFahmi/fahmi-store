@@ -197,9 +197,12 @@ export default function CartPage() {
               <span className="text-2xl font-semibold text-foreground tracking-[-0.02em]">{formatIDR(total)}</span>
             </div>
 
-            <button className="mt-5 w-full h-11 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] transition-colors">
+            <Link
+              href="/checkout"
+              className="mt-5 w-full h-11 rounded-full bg-[#0071e3] text-white text-[15px] font-medium hover:bg-[#0077ed] transition-colors flex items-center justify-center"
+            >
               Proceed to checkout
-            </button>
+            </Link>
 
             <div className="mt-4 flex items-center justify-center gap-2 text-[12px] text-muted-foreground">
               <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>

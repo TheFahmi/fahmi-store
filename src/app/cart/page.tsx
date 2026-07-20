@@ -81,14 +81,14 @@ export default function CartPage() {
       <h1 className="text-3xl md:text-4xl font-semibold tracking-[-0.02em] text-foreground">Shopping cart</h1>
       <p className="text-[14px] text-muted-foreground mt-1">{items.length} {items.length === 1 ? 'item' : 'items'} in your cart</p>
 
-      <div className="mt-8 grid lg:grid-cols-3 gap-8">
+      <div className="mt-8 grid grid-cols-1 lg:grid-cols-3 gap-4 lg:gap-8">
         {/* Cart items */}
         <div className="lg:col-span-2 space-y-3 min-w-0">
           {items.map((item) => {
             const qty = Number(item.kuantiti || item.qty || 0);
             const nama = item.Nama_product || item.nama || 'Product';
             return (
-            <div key={item.id} className="p-4 rounded-2xl bg-card border border-border">
+            <div key={item.id} className="w-full p-4 rounded-2xl bg-card border border-border">
               <div className="flex gap-4">
                 <Link href={`/products/${item.idproduct || item.id}`} className="w-20 h-20 sm:w-28 sm:h-28 rounded-xl bg-muted overflow-hidden shrink-0">
                   {/* eslint-disable-next-line @next/next/no-img-element */}

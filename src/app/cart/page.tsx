@@ -88,49 +88,49 @@ export default function CartPage() {
             const qty = Number(item.kuantiti || item.qty || 0);
             const nama = item.Nama_product || item.nama || 'Product';
             return (
-            <div key={item.id} className="flex gap-4 p-4 rounded-2xl bg-card border border-border">
-              <Link href={`/products/${item.idproduct || item.id}`} className="w-24 h-24 sm:w-28 sm:h-28 rounded-xl bg-muted overflow-hidden shrink-0">
-                {/* eslint-disable-next-line @next/next/no-img-element */}
-                <img
-                  src={productImage(item.image, nama)}
-                  alt={nama}
-                  className="w-full h-full object-cover"
-                />
-              </Link>
-              <div className="flex-1 min-w-0 flex flex-col justify-between">
-                <div>
-                  <Link href={`/products/${item.idproduct || item.id}`} className="text-[15px] font-medium text-foreground hover:text-[#0071e3] line-clamp-2">
-                    {nama}
-                  </Link>
-                  <p className="text-[13px] text-muted-foreground mt-0.5">{formatIDR(Number(item.harga))} each</p>
-                </div>
-                <div className="mt-2 flex items-center justify-between">
-                  <div className="flex items-center rounded-full border border-border">
-                    <button
-                      className="w-8 h-8 text-muted-foreground hover:text-foreground"
-                      onClick={() => setQty(item.id, qty - 1)}
-                      aria-label="Decrease"
-                    >&#8722;</button>
-                    <span className="w-8 text-center text-[13px] font-medium">{qty}</span>
-                    <button
-                      className="w-8 h-8 text-muted-foreground hover:text-foreground"
-                      onClick={() => setQty(item.id, qty + 1)}
-                      aria-label="Increase"
-                    >+</button>
-                  </div>
-                  <div className="flex items-center gap-4 shrink-0">
-                    <span className="text-[15px] font-semibold text-foreground">{formatIDR(Number(item.harga) * qty)}</span>
-                    <button
-                      onClick={() => remove(item.id)}
-                      className="text-muted-foreground hover:text-destructive transition-colors"
-                      aria-label="Remove"
-                    >
-                      <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
-                        <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6" />
-                      </svg>
-                    </button>
+            <div key={item.id} className="p-4 rounded-2xl bg-card border border-border">
+              <div className="flex gap-4">
+                <Link href={`/products/${item.idproduct || item.id}`} className="w-20 h-20 sm:w-28 sm:h-28 rounded-xl bg-muted overflow-hidden shrink-0">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src={productImage(item.image, nama)}
+                    alt={nama}
+                    className="w-full h-full object-cover"
+                  />
+                </Link>
+                <div className="flex-1 min-w-0 flex flex-col justify-between">
+                  <div>
+                    <Link href={`/products/${item.idproduct || item.id}`} className="text-[14px] sm:text-[15px] font-medium text-foreground hover:text-[#0071e3] line-clamp-2">
+                      {nama}
+                    </Link>
+                    <p className="text-[12px] sm:text-[13px] text-muted-foreground mt-0.5">{formatIDR(Number(item.harga))} each</p>
                   </div>
                 </div>
+                <button
+                  onClick={() => remove(item.id)}
+                  className="self-start text-muted-foreground hover:text-destructive transition-colors p-1 -m-1"
+                  aria-label="Remove"
+                >
+                  <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.8}>
+                    <path d="M3 6h18M8 6V4h8v2M19 6l-1 14H6L5 6M10 11v6M14 11v6" />
+                  </svg>
+                </button>
+              </div>
+              <div className="mt-3 flex items-center justify-between">
+                <div className="flex items-center rounded-full border border-border">
+                  <button
+                    className="w-9 h-9 text-muted-foreground hover:text-foreground"
+                    onClick={() => setQty(item.id, qty - 1)}
+                    aria-label="Decrease"
+                  >&#8722;</button>
+                  <span className="w-9 text-center text-[14px] font-medium">{qty}</span>
+                  <button
+                    className="w-9 h-9 text-muted-foreground hover:text-foreground"
+                    onClick={() => setQty(item.id, qty + 1)}
+                    aria-label="Increase"
+                  >+</button>
+                </div>
+                <span className="text-[15px] sm:text-[16px] font-semibold text-foreground">{formatIDR(Number(item.harga) * qty)}</span>
               </div>
             </div>
             );
